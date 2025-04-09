@@ -1,0 +1,434 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f5f7fa;
+    color: #2d3748;
+}
+
+.container {
+    width: 100%;
+    max-width: 360px;
+    margin: 75px auto; /* Centered horizontally */
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific styling for Terms page container */
+.terms-container {
+    max-width: 600px;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    background: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 6px rgba(66, 153, 225, 0.2);
+    outline: none;
+}
+
+/* Encryption Note Styling */
+.encryption-note {
+    display: block;
+    font-size: 12px;
+    color: #718096;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+/* Password Toggle Styling */
+.password-group {
+    position: relative;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #718096;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #4299e1;
+}
+
+/* Button with Spinner */
+button {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    background: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+button:disabled {
+    background: #a0aec0;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background: #3182ce;
+}
+
+.spinner {
+    margin-left: 10px;
+}
+
+.spinner.hidden {
+    display: none;
+}
+
+.link-text {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #718096;
+}
+
+.link-text a {
+    color: #4299e1;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-text a:hover {
+    color: #3182ce;
+    text-decoration: underline;
+}
+
+/* Accordion Styling */
+.accordion {
+    margin-bottom: 20px;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 12px;
+    background: #edf2f7;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    touch-action: manipulation;
+}
+
+.accordion-btn:hover {
+    background: #e2e8f0;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    background: #edf2f7;
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-content.active {
+    max-height: 200px;
+    padding: 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.accordion-content {
+    scrollbar-width: thin;
+    scrollbar-color: #a0aec0 #e2e8f0;
+}
+
+.accordion-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.accordion-content::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 8px;
+}
+
+.accordion-content::-webkit-scrollbar-thumb {
+    background: #a0aec0;
+    border-radius: 8px;
+}
+
+.accordion-content::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+}
+
+.accordion-content p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: #5a6170;
+    line-height: 1.5;
+}
+
+/* Checkbox Styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #4299e1;
+}
+
+.checkbox-group a {
+    color: #4299e1;
+    text-decoration: none;
+}
+
+.checkbox-group a:hover {
+    color: #3182ce;
+    text-decoration: underline;
+}
+
+/* Terms and Conditions Content Styling */
+.terms-content {
+    margin-bottom: 30px;
+}
+
+.terms-content h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.terms-content p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #5a6170;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Message Styling */
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message.success {
+    background: #e6fffa;
+    color: #2b6cb0;
+    border: 1px solid #b2f5ea;
+}
+
+.message.error {
+    background: #fff1f0;
+    color: #c53030;
+    border: 1px solid #feb2b2;
+}
+
+/* Footer Styling */
+.footer {
+    /* margin-top: 5px; */
+    /* padding: 7px 0; */
+    text-align: center;
+    font-size: 12px;
+    color: #718096;
+    width: 100%;
+    background: #f5f7fa;
+}
+
+.footer a {
+    color: #4299e1;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #3182ce;
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 60px; /* Space for footer */
+    }
+
+    .container {
+        max-width: 90%;
+        margin: 10px auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .terms-container {
+        max-width: 90%;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+
+    .encryption-note {
+        font-size: 11px;
+    }
+
+    .password-toggle {
+        right: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+
+    .accordion-btn {
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+
+    .accordion-content.active {
+        max-height: 150px;
+        padding: 10px 15px;
+    }
+
+    .accordion-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .checkbox-group label {
+        font-size: 13px;
+    }
+
+    .link-text {
+        font-size: 13px;
+        margin-top: 15px;
+    }
+
+    .terms-content h2 {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    .terms-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .message {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .footer {
+        font-size: 11px;
+        padding: 15px 0;
+    }
+}
