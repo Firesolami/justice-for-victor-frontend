@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.includes('/petition.html')) {
         const token = localStorage.getItem('authToken');
         if (!token) {
-            window.location.href = '/index.html';
+            window.location.href = '/signup.html';
             return;
         }
     }
@@ -206,8 +206,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    updatePetitionCount();
+
 });
 
+async function updatePetitionCount() {
+    try {
+        const response = await fetch('https://victor-petition.onrender.com/api/petitions/count');
+        const data = await response.json();
+        document.getElementById('petition-count').textContent = data.count;
+    } catch (error) {
+        console.error('Error fetching petition count:', error);
+    }
+}
 
 function togglePassword(inputId, toggleElement) {
     const input = document.getElementById(inputId);
