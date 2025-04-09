@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Check authentication for petition page
-    if (window.location.pathname.includes('petition.html')) {
+    if (window.location.pathname.includes('/petition.html')) {
         const token = localStorage.getItem('authToken');
         if (!token) {
-            window.location.href = 'index.html';
+            window.location.href = '/index.html';
             return;
         }
     }
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     showMessage('login-message', 'Login successful! Redirecting...', 'success');
                     setTimeout(() => {
-                        window.location.href = 'petition.html';
+                        window.location.href = '/petition.html';
                     }, 1500);
                 } else {
                     showMessage('login-message', data.message || 'Login failed. Please check your credentials.', 'error');
@@ -124,12 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         setToken(data.token);
                         showMessage('signup-message', 'Signup successful! Redirecting to petition page...', 'success');
                         setTimeout(() => {
-                            window.location.href = 'petition.html';
+                            window.location.href = '/petition.html';
                         }, 1500);
                     } else {
                         showMessage('signup-message', 'Signup successful! Please login.', 'success');
                         setTimeout(() => {
-                            window.location.href = 'index.html';
+                            window.location.href = '/index.html';
                         }, 1500);
                     }
                 } else {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!token) {
                     showMessage('petition-message', 'Please login to sign the petition.', 'error');
                     setTimeout(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = '/index.html';
                     }, 1500);
                     return;
                 }
